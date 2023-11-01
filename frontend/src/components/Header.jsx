@@ -20,7 +20,7 @@ function Header() {
 
         <li>
           <Link to="/register">
-            <FaUser /> Login
+            <FaUser /> Register
           </Link>
         </li>
       </ul>
