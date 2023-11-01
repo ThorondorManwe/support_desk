@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
+import { register } from '../features/auth/authSlice';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //const { isLoading } = useSelector((state) => state.auth);
+  const { user, isLoading, isSuccess, message } = useSelector((state) => state.auth);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -39,6 +40,8 @@ function Register() {
         email,
         password,
       };
+
+      dispatch(register(userData));
     }
   };
 
